@@ -1,6 +1,6 @@
-## Admin Management Dashboard – Monorepo
+## Enterprise-Orchestration-Platform
 
-This repository contains a full‑stack **Admin Management Dashboard**:
+This repository contains a full‑stack **Enterprise-Orchestration-Platform**:
 
 - **Backend**: Node.js + Express + TypeScript + MongoDB (Mongoose), JWT auth, RBAC, Swagger docs, Jest tests  
 - **Frontend**: React + TypeScript + Vite, Tailwind CSS, Zustand, React Hook Form + Zod, Axios, React Router

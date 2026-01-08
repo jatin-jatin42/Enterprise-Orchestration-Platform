@@ -1,6 +1,6 @@
-# Admin Management Dashboard – Backend API
+# Enterprise-Orchestration-Platform – Backend API
 
-Backend service for the **Admin Management Dashboard**, built with:
+Backend service for the **Enterprise-Orchestration-Platform**, built with:
 
 - **Node.js + Express + TypeScript**
 - **MongoDB** with **Mongoose**

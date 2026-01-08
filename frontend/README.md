@@ -1,6 +1,6 @@
-# Admin Management Dashboard – Frontend
+# Enterprise-Orchestration-Platform – Frontend
 
-React + TypeScript + Vite SPA for the **Admin Management Dashboard**.  
+React + TypeScript + Vite SPA for the **Enterprise-Orchestration-Platform**.  
 It consumes the backend API to provide authentication, a protected dashboard, and a modern UI.
 
 ---
