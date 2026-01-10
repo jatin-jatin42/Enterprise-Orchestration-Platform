@@ -1,188 +1,134 @@
-## Enterprise-Orchestration-Platform
+# Enterprise Orchestration Platform
 
-This repository contains a full‑stack **Enterprise-Orchestration-Platform**:
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
 
-- **Backend**: Node.js + Express + TypeScript + MongoDB (Mongoose), JWT auth, RBAC, Swagger docs, Jest tests  
-- **Frontend**: React + TypeScript + Vite, Tailwind CSS, Zustand, React Hook Form + Zod, Axios, React Router
+## 📖 Overview
 
-The app provides:
+The **Enterprise Orchestration Platform** is a robust, full-stack solution designed to streamline administrative and operational tasks. It features a scalable **Node.js/Express** backend and a dynamic **React** frontend, providing a seamless experience for managing users, interns, and resources with enterprise-grade security and performance.
 
-- Secure authentication with JWT and role‑based access control (admin/user)
-- Management of **users**, **interns**, **learning resources**, and **tool resources**
-- Admin‑only operations such as user management, intern CRUD, password resets
-- A modern dashboard UI for viewing the logged‑in user and performing quick actions
+## ✨ Key Features
 
----
+-   **🔐 Secure Authentication**: Robust JWT-based authentication with role-based access control (RBAC) for Admins and Users.
+-   **👥 User & Intern Management**: Comprehensive CRUD operations for managing system users and intern profiles.
+-   **📚 Resource Hub**: Centralized management for learning materials and development tools.
+-   **⚡ Modern Dashboard**: A responsive, high-performance UI built with React and Tailwind CSS.
+-   **🛠️ Developer-First**: Written entirely in TypeScript with strict typing, thoroughly tested with Jest.
+-   **📄 API Documentation**: Integrated Swagger/OpenAPI documentation for easy API exploration.
 
-## Project structure
+## 🏗️ Tech Stack
 
-- `backend/` – REST API, business logic, database models, tests
-- `frontend/` – React SPA dashboard that consumes the backend API
+### Backend
+-   **Runtime**: Node.js, Express
+-   **Language**: TypeScript
+-   **Database**: MongoDB (Mongoose)
+-   **Auth**: JWT, Bcrypt
+-   **Validation**: Zod, Express-Validator
+-   **Testing**: Jest, Supertest
 
-Each folder has its own `package.json` and can be developed independently.
+### Frontend
+-   **Framework**: React (Vite)
+-   **Language**: TypeScript
+-   **Styling**: Tailwind CSS, Headless UI
+-   **State Management**: Zustand
+-   **Forms**: React Hook Form, Zod
+-   **Routing**: React Router DOM
 
----
+## 📂 Project Structure
 
-## Prerequisites
+```bash
+├── backend/            # REST API, Business Logic, DB Models
+│   ├── src/
+│   │   ├── controllers/# Route Controllers
+│   │   ├── models/     # Mongoose Models
+│   │   ├── routes/     # API Routes
+│   │   ├── services/   # Business Logic
+│   │   └── ...
+│   └── ...
+├── frontend/           # React SPA Dashboard
+│   ├── src/
+│   │   ├── components/ # Reusable UI Components
+│   │   ├── pages/      # Page Views
+│   │   ├── store/      # Zustand State Stores
+│   │   └── ...
+│   └── ...
+└── README.md           # Project Documentation
+```
 
-- **Node.js**: v18+ (v20 recommended)  
-- **npm**: v9+  
-- **MongoDB**: Local instance or MongoDB Atlas connection string
+## 🚀 Getting Started
 
----
+Follow these instructions to set up the project locally.
 
-## Quick start (development)
+### Prerequisites
 
-### 1) Clone the repo
+-   **Node.js**: v18+ (v20 recommended)
+-   **npm**: v9+
+-   **MongoDB**: Local instance or Atlas URI
+
+### 1. Clone the Repository
 
 ```bash
 git clone <your-repo-url> Admin-Management-Dashboard
 cd Admin-Management-Dashboard
 ```
 
-### 2) Backend setup
+### 2. Backend Setup
 
 ```bash
 cd backend
 npm install
-```
-
-Create `.env` from the example:
-
-```bash
 cp .env.example .env
 ```
 
-Edit `.env` and set at least:
-
-- `MONGODB_URI` – your MongoDB connection string  
-- `JWT_SECRET` – **strong, at least 32 chars**, required in production  
-- `ALLOWED_ORIGINS` – e.g. `http://localhost:5173`
-
-Seed the default admin user (optional but recommended for first login):
-
-```bash
-npm run seed
+**Configure `.env`**:
+```env
+MONGODB_URI=mongodb://localhost:27017/enterprise-v1
+JWT_SECRET=your_super_secure_secret
+ALLOWED_ORIGINS=http://localhost:5173
 ```
 
-Run the backend:
-
+**Seed & Run**:
 ```bash
-# Development (with ts-node + nodemon)
-npm run dev
-
-# or, build & run
-npm run build
-npm start
+npm run seed  # Seeds default admin user
+npm run dev   # Starts development server
 ```
 
-The API will be available at:
+### 3. Frontend Setup
 
-- Base URL: `http://localhost:8000/api`
-- Swagger docs: `http://localhost:8000/api/docs`
-- Health check: `http://localhost:8000/api/health`
-
-> For more backend details, see `backend/README.md`.
-
-### 3) Frontend setup
-
-In a new terminal:
+Open a new terminal:
 
 ```bash
 cd frontend
 npm install
-```
-
-Create a `.env` file based on `.env.example`:
-
-```bash
 cp .env.example .env
 ```
 
-Configure the backend API URL (must match the backend base URL):
-
+**Configure `.env`**:
 ```env
 VITE_API_BASE_URL=http://localhost:8000/api
 ```
 
-Start the React app:
-
+**Run**:
 ```bash
 npm run dev
 ```
 
-The frontend will run at:
+Visit `http://localhost:5173` and log in with the seeded credentials.
 
-- `http://localhost:5173`
+## 🧪 Testing
 
-Log in using the seeded admin credentials (from `npm run seed`) to access the dashboard.
-
-> For more frontend details, see `frontend/README.md`.
-
----
-
-## High‑level architecture
-
-- **Auth flow**
-  - User logs in via `/api/auth/login`
-  - Backend returns a signed JWT + user object
-  - Frontend stores the token (via `authService.setToken`) and also in a persisted Zustand store
-  - Axios interceptor attaches `Authorization: Bearer <token>` to all API requests
-  - 401 responses clear the token and redirect to `/login`
-
-- **RBAC**
-  - Backend middleware enforces user roles (`authenticateUser`, `requireAdmin`)
-  - Frontend `ProtectedRoute` component ensures only authenticated users (and optionally matching roles) can access routes
-
-- **Error handling**
-  - Backend has a centralized error middleware with consistent JSON responses
-  - Frontend `authService` wraps Axios errors in a custom `AuthServiceError` with message + statusCode
-  - UI shows toast notifications and inline error messages
-
----
-
-## Scripts overview
-
-### Backend
-
-- `npm run dev` – Start API in dev mode (ts-node + nodemon)
-- `npm run build` – Compile TypeScript to `dist`
-- `npm start` – Run compiled server
-- `npm test` – Run Jest test suite
-- `npm run seed` – Seed default admin user
-
-### Frontend
-
-- `npm run dev` – Start Vite dev server
-- `npm run build` – Production build
-- `npm run preview` – Preview production build
-- `npm run lint` – Run ESLint
-- `npm run type-check` – Run TypeScript type checker
-
----
-
-## Security notes
-
-- **JWT secret** must be strong and **never** committed to version control.  
-- Logs in both backend and frontend only print detailed error information in **development**.  
-- Rate limiting, CORS, and Helmet are enabled on the backend to mitigate common web attacks.  
-- Default admin credentials from `.env.example` are for **local development only** – always change them in real deployments.
-
----
-
-## Testing
-
-- Backend tests (`jest`, `supertest`) cover authentication and selected flows:
+The backend includes a comprehensive test suite.
 
 ```bash
 cd backend
 npm test
 ```
 
-Frontend currently relies on type‑checking and ESLint; you can add React Testing Library / Cypress as needed.
+## 📄 License
 
----
-
-## License
-
-This project is licensed under the **MIT License**.
+This project is licensed under the [MIT License](LICENSE).
