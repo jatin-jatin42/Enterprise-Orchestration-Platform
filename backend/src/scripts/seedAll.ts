@@ -6,7 +6,6 @@ import User from '../models/User.model';
 import Intern from '../models/Intern.model';
 import ToolResource from '../models/ToolResource.model';
 import LearningResource from '../models/LearningResource.model';
-import Project from '../models/Project.model';
 
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 
