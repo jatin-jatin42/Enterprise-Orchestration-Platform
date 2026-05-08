@@ -39,11 +39,10 @@ export const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid, isSubmitting, isDirty },
+    formState: { errors, isValid, isSubmitting },
     setFocus,
     watch,
     trigger,
-    setError,
   } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
     mode: 'onChange',
@@ -91,7 +90,7 @@ export const Login = () => {
   const handleFormErrors = useCallback((fieldErrors: Record<string, { message?: string }>) => {
     const errorMessages: string[] = [];
 
-    Object.entries(fieldErrors).forEach(([field, error]) => {
+    Object.entries(fieldErrors).forEach(([_, error]) => {
       if (error?.message) {
         errorMessages.push(error.message);
       }

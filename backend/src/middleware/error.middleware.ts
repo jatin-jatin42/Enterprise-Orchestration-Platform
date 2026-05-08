@@ -1,5 +1,5 @@
 //backend/src/middleware/error.middleware.ts
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 
 interface AppError extends Error {
   statusCode?: number;
@@ -15,7 +15,7 @@ export const errorHandler = (
   err: unknown, 
   req: Request, 
   res: Response, 
-  // next: NextFunction
+  _next: NextFunction
 ) => {
   // Log error details with more context
   console.error('🚨 Error Handler Triggered:', {

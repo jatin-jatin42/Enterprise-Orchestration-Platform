@@ -212,7 +212,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../stores/authStore';
 import { 
-  Bell, 
   Menu,
   ChevronDown,
   User,
@@ -229,15 +228,6 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle }) => {
   const navigate = useNavigate(); // ✅ NEW - Added
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
-
-  // Mock notifications data
-  const notifications = [
-    { id: 1, text: 'New intern application received', time: '5 min ago', unread: true },
-    { id: 2, text: 'Weekly report is ready', time: '1 hour ago', unread: true },
-    { id: 3, text: 'Meeting with HR at 3 PM', time: '2 hours ago', unread: false },
-  ];
-
-  const unreadCount = notifications.filter(n => n.unread).length;
 
   // ✅ NEW - Added handler for Profile navigation
   const handleProfileClick = () => {
