@@ -282,14 +282,7 @@ export const Login = () => {
             </button>
           </div>
 
-          {/* Intern Login Hint */}
-          <div className="rounded-lg bg-blue-50 dark:bg-blue-900/20 p-3 border border-blue-200 dark:border-blue-800 text-xs text-blue-700 dark:text-blue-300 flex items-start space-x-2 mt-1">
-            <AlertCircle className="h-4 w-4 mt-0.5 text-blue-600 dark:text-blue-300 shrink-0" />
-            <p>
-              <strong>Hint for interns:</strong> Your password is formed by combining the <u>last 4 digits of your mobile number</u> with your <u>first name</u>.
 
-            </p>
-          </div>
         </div>
 
 

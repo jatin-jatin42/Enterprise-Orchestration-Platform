@@ -264,8 +264,8 @@ const Header: React.FC<HeaderProps> = ({ onMenuToggle }) => {
               <LayoutDashboard className="w-5 h-5 text-white" />
             </div>
             <div className="hidden sm:block">
-              <h1 className="text-lg font-bold text-gray-800 dark:text-white">InternFlow</h1>
-              <p className="text-xs text-gray-600 dark:text-gray-400">Management System</p>
+              <h1 className="text-lg font-bold text-gray-800 dark:text-white">Enterprise Orchestration</h1>
+              <p className="text-xs text-gray-600 dark:text-gray-400">Platform</p>
             </div>
           </div>
         </div>

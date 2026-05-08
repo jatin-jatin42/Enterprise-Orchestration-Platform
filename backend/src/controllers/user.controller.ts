@@ -280,7 +280,7 @@ export const deleteDocument = async (req: AuthRequest, res: Response): Promise<R
     }
 
     // Find and remove document from MongoDB
-    const docIndex = user.documents?.findIndex(doc => doc.fileName === decodeURIComponent(fileName));
+    const docIndex = user.documents?.findIndex(doc => doc.fileName === decodeURIComponent(fileName as string));
     if (docIndex === undefined || docIndex === -1) {
       return res.status(404).json({ success: false, message: 'Document not found' });
     }

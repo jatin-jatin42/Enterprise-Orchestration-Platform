@@ -13,7 +13,7 @@ interface AuthRequest extends Request {
 // Register new user (Optional: restrict to admin only in production)
 export const register = async (req: AuthRequest, res: Response): Promise<Response> => {
   try {
-    const { username, email, password, role, profile } = req.body;
+    const { username, email, password, profile } = req.body;
 
     // Check for existing user
     const existingUser = await User.findOne({ $or: [{ email }, { username }] });
@@ -21,7 +21,8 @@ export const register = async (req: AuthRequest, res: Response): Promise<Respons
       return res.status(400).json({ success: false, message: 'User with given email or username already exists' });
     }
 
-    const user = new User({ username, email, password, role, profile });
+    // Force role to 'user' for standard registration
+    const user = new User({ username, email, password, role: 'user', profile });
     await user.save();
 
     const token = generateToken(user._id.toString());

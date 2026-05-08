@@ -163,7 +163,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                   {user?.username || 'Admin User'}
                 </p>
                 <p className="text-xs text-gray-400 truncate">
-                  {user?.email || 'admin@example.com'}
+                  {user?.email || 'admin@company.com'}
                 </p>
                 <p className="text-xs text-blue-400 mt-0.5 capitalize">
                   {user?.role || 'Admin'}
@@ -175,7 +175,7 @@ const Sidebar: React.FC<SidebarProps> = ({
             {!isOpen && (
               <div className="absolute left-full ml-3 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 whitespace-nowrap z-50 shadow-xl border border-gray-700">
                 <div className="font-medium">{user?.username || 'Admin User'}</div>
-                <div className="text-xs text-gray-300">{user?.email || 'admin@example.com'}</div>
+                <div className="text-xs text-gray-300">{user?.email || 'admin@company.com'}</div>
                 <div className="text-xs text-blue-400 mt-0.5 capitalize">
                   {user?.role || 'Admin'}
                 </div>

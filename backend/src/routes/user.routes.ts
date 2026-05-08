@@ -122,9 +122,9 @@ router.get('/:id', authenticateUser, getUserById);
  *                     type: string
  *                   phone:
  *                     type: string
- *                   position:               // ✅ NEW - Added
+ *                   position:
  *                     type: string
- *                   bio:                    // ✅ NEW - Added
+ *                   bio:
  *                     type: string
  *     responses:
  *       201:
@@ -173,9 +173,9 @@ router.post('/', authenticateUser, requireAdmin, userCreationValidation, createU
  *                     type: string
  *                   phone:
  *                     type: string
- *                   position:               // ✅ NEW - Added
+ *                   position:
  *                     type: string
- *                   bio:                    // ✅ NEW - Added
+ *                   bio:
  *                     type: string
  *               isActive:
  *                 type: boolean

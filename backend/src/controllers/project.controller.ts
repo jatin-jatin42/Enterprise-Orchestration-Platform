@@ -607,7 +607,7 @@ export const updateProjectManager = async (req: AuthRequest, res: Response): Pro
 
 export const addPdfDocument = async (req: AuthRequest, res: Response): Promise<Response> => {
   try {
-    const projectId = req.params.id;
+    const projectId = req.params.id as string;
     const { title, description } = req.body;
 
     if (!req.file) {
@@ -700,7 +700,7 @@ export const removePdfDocument = async (req: AuthRequest, res: Response): Promis
     const { documentIndex } = req.params;
     const projectId = req.params.id;
 
-    const index = parseInt(documentIndex);
+    const index = parseInt(documentIndex as string);
     if (isNaN(index) || index < 0) {
       return res.status(400).json({ success: false, message: 'Invalid document index' });
     }

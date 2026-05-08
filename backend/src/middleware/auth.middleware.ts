@@ -64,7 +64,7 @@ export const checkOwnershipOrAdmin = <T extends { createdBy: { userId: { toStrin
         return;
       }
 
-      const resource = await model.findById(req.params.id);
+      const resource = await model.findById(req.params.id as string);
       if (!resource) {
         res.status(404).json({ success: false, message: 'Resource not found' });
         return;

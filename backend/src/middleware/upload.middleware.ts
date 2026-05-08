@@ -27,7 +27,7 @@ const fileFilter = (_req: any, file: Express.Multer.File, cb: multer.FileFilterC
 // Project Documents Storage
 const projectDocumentsStorage = multer.diskStorage({
   destination: (req, _file, cb) => {
-    const projectId = req.params.id || 'temp';
+    const projectId = (req.params.id as string) || 'temp';
     const uploadPath = path.join(config.uploadPath, 'projects', projectId, 'documents');
     ensureDirectory(uploadPath);
     cb(null, uploadPath);
@@ -48,7 +48,7 @@ const projectDocumentsStorage = multer.diskStorage({
 // Project Images Storage
 const projectImagesStorage = multer.diskStorage({
   destination: (req, _file, cb) => {
-    const projectId = req.params.id || 'temp';
+    const projectId = (req.params.id as string) || 'temp';
     const uploadPath = path.join(config.uploadPath, 'projects', projectId, 'images');
     ensureDirectory(uploadPath);
     cb(null, uploadPath);
@@ -75,7 +75,7 @@ const userAvatarsStorage = multer.diskStorage({
 // Intern Documents Storage
 const internDocumentsStorage = multer.diskStorage({
   destination: (req, _file, cb) => {
-    const internId = req.params.id || 'temp';
+    const internId = (req.params.id as string) || 'temp';
     const uploadPath = path.join(config.uploadPath, 'interns', internId, 'documents');
     ensureDirectory(uploadPath);
     cb(null, uploadPath);
@@ -96,7 +96,7 @@ const internDocumentsStorage = multer.diskStorage({
 // Intern Profile Images Storage
 const internProfileStorage = multer.diskStorage({
   destination: (req, _file, cb) => {
-    const internId = req.params.id || 'temp';
+    const internId = (req.params.id as string) || 'temp';
     const uploadPath = path.join(config.uploadPath, 'interns', internId, 'profile');
     ensureDirectory(uploadPath);
     cb(null, uploadPath);
